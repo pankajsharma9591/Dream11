@@ -1,3 +1,6 @@
+// ignore_for_file: file_names
+
+import 'package:dream11/loginScreen.dart';
 import 'package:dream11/registerAndPlayScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +29,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               width: width,
               child: ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
@@ -38,7 +43,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RegisterAndPlay()),
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterAndPlay()),
                   );
                 },
                 child: const Padding(
@@ -64,21 +70,36 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     SizedBox(height: 2),
                     Text(
                       "Enter code",
-                      style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       "Already a user?",
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    SizedBox(height: 2),
-                    Text(
-                      "Log In",
-                      style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+                    const SizedBox(height: 2),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
+                        );
+                      },
+                      child: const Text(
+                        "Log In",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ],
                 ),

@@ -1,3 +1,6 @@
+// ignore_for_file: file_names
+
+import 'package:dream11/loginScreen.dart';
 import 'package:flutter/material.dart';
 
 class RegisterAndPlay extends StatefulWidget {
@@ -26,12 +29,13 @@ class _RegisterAndPlayState extends State<RegisterAndPlay> {
         ),
         backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+            child: Container(
               color: Colors.grey[100],
               child: const TextField(
                 decoration: InputDecoration(
@@ -41,15 +45,28 @@ class _RegisterAndPlayState extends State<RegisterAndPlay> {
                 ),
               ),
             ),
-            const Text(
-              "You will receive an OTP for verification",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-              ),
+          ),
+          const SizedBox(height: 6),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+            child: Row(
+              children: const [
+                SizedBox(width: 6),
+                Text(
+                  "You will receive an OTP for verification",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
             ),
-            Row(
+          ),
+          const SizedBox(height: 25),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+            child: Row(
               children: [
                 SizedBox(
                   height: 30,
@@ -90,12 +107,18 @@ class _RegisterAndPlayState extends State<RegisterAndPlay> {
                 ),
               ],
             ),
-            SizedBox(
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+            child: SizedBox(
               width: width,
               child: ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor: MaterialStateProperty.all<Color>(const Color(0xffd6d6d6)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xffd6d6d6)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
@@ -104,10 +127,11 @@ class _RegisterAndPlayState extends State<RegisterAndPlay> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const RegisterAndPlay()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => const RegisterAndPlay()),
+                  // );
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -122,65 +146,98 @@ class _RegisterAndPlayState extends State<RegisterAndPlay> {
                 ),
               ),
             ),
-            Center(
-                child: RichText(
-              text: const TextSpan(
-                text: "By registering, I agree to Dream11's",
-                style: TextStyle(
-                  color: Colors.grey,
-                  // fontWeight: FontWeight.bold,
-                  fontSize: 13,
-                ),
-                children: [
-                  TextSpan(
-                    text: 'T&Cs',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      decoration: TextDecoration.underline,
-                      decorationStyle: TextDecorationStyle.dashed,
+          ),
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+            child: Center(
+              child: RichText(
+                text: const TextSpan(
+                  text: "By registering, I agree to Dream11's",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    // fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'T&Cs',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        decoration: TextDecoration.underline,
+                        decorationStyle: TextDecorationStyle.dotted,
+                      ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const Spacer(),
+          Container(
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(249, 249, 249, 1),
+              border: Border(
+                top: BorderSide(
+                  color: Color(0xFFEEEEEE),
+                ),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Invited by a friend?",
+                        style: TextStyle(color: Colors.grey, fontSize: 15),
+                      ),
+                      SizedBox(height: 2),
+                      Text(
+                        "Enter code",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const Text(
+                        "Already a user?",
+                        style: TextStyle(color: Colors.grey, fontSize: 15),
+                      ),
+                      const SizedBox(height: 2),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()),
+                          );
+                        },
+                        child: const Text(
+                          "Log In",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            )),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Invited by a friend?",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    SizedBox(height: 2),
-                    Text(
-                      "Enter code",
-                      style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
-                    Text(
-                      "Already a user?",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    SizedBox(height: 2),
-                    Text(
-                      "Log In",
-                      style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-              ],
             ),
-            const SizedBox(height: 12),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
